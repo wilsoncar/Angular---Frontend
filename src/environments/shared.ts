@@ -5,7 +5,7 @@ export class SharedEndPoints{
     constructor(API_URL: string){
         this.API_URL = API_URL;
         this.END_POINTS = {
-            GET_LUHN: this.API_URL + '/luhn',
+            LUHN: this.API_URL + '/luhn',
         }
     }
 }

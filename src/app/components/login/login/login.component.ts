@@ -12,15 +12,20 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   luhn: string;
   luhn$: Subscription;
+  
 
   constructor(private loginService: LoginService) {
     console.log('mensaje renderizado desde el contructor');
     this.luhn = '';
+
   }
 
   ngOnInit(): void {
     console.log('init');
-    this.getLuhn();
+    //this.getLuhn();
+    //this.createLuhn();
+    //this.updateLuhn();
+    //this.deleteLuhn();
   }
 
   getLuhn(){
@@ -31,6 +36,32 @@ export class LoginComponent implements OnInit, OnDestroy {
       console.log('this.luhn', this.luhn);
     });
   }
+
+  createLuhn(){
+    this.luhn$ = this.loginService.createLuhn(79927398135).subscribe(create =>{
+      console.log('luhn creado desde el front',create);
+    });
+  }
+
+  updateLuhn(){
+    this.luhn$ = this.loginService.updateLuhn('62705627587525670e40655f',79927398713).subscribe(update =>{
+      console.log('luhn actualizado desde el front',update);
+    });
+  }
+
+  deleteLuhn(){
+    this.luhn$ = this.loginService.deleteLuhn('62705627587525670e40655f').subscribe(deletel =>{
+      console.log('luhn eliminado desde el front',deletel);
+    });
+  }
+
+
+
+  
+
+ 
+
+  
 
   ngOnDestroy(): void {
     this.luhn$.unsubscribe();
