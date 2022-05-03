@@ -2,3 +2,24 @@
 <app-customers></app-customers>
 <app-login></app-login>
 <router-outlet></router-outlet>
+<br>
+
+<div class="row center-xs">
+    <div class="col-xs-6">
+        <div class="box">
+            <h1>Reactive Form</h1>
+            <mat-tab-group>
+                <mat-tab label="Registrarse" (click)="toggleEditor('registro')">
+                    <app-registro *ngIf="showregistro"></app-registro>
+                </mat-tab>
+                <mat-tab label="Validar Token" (click)="toggleEditor('IsActive')">
+                    <app-is-active *ngIf="showIsActive"></app-is-active>
+                </mat-tab>
+                <mat-tab label="Iniciar Sesión" (click)="toggleEditor('InicioSesion')">
+                    <app-iniciosesion *ngIf="showInicioSesion"></app-iniciosesion>
+                </mat-tab>
+              </mat-tab-group>
+        </div>
+    </div>
+</div>
+

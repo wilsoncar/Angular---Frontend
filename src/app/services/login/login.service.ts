@@ -31,6 +31,21 @@ export class LoginService {
     return this.httpClient.delete<any>(environment.END_POINTS.LUHN, {body:{id}});
   }
 
+  createRegistro(data: any): Observable<any> {
+    console.log('registro:',data);
+    return this.httpClient.put<any>(environment.END_POINTS.REGISTRO, data);
+  }
+
+  IsActive(data: any): Observable<any> {
+    console.log('IsActive:',data);
+    return this.httpClient.post<any>(environment.END_POINTS.ISACTIVE, data);
+  }
+
+  getLogin(login: any): Observable<any> {
+    console.log('login:',login);
+    return this.httpClient.get<any>(environment.END_POINTS.LOGIN, login);
+  }
+
 }
 
 
